@@ -17,20 +17,46 @@ class MyThread implements Callable<String>{
     public String call() throws Exception {
         System.out.println("call start");
         //throw new RuntimeException("ex");
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                System.out.println(t.getId() + "异常");
+                throw new RuntimeException(e);
+            }
+        });
         int i = 1/0;
         return "haha";
     }
 }
+
+class MyThread1 implements Runnable{
+
+    @Override
+    public void run() {
+        System.out.println("runnable start");
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                System.out.println(t.getId() + "异常");
+                throw new RuntimeException(e);
+            }
+        });
+        int i = 1/0;
+    }
+}
+
 public class CallableDemo {
 
     public static void main(String[] args) {
         try{
-            FutureTask<String> futureTask = new FutureTask<>(new MyThread());
+            /*FutureTask<String> futureTask = new FutureTask<>(new MyThread());
             new Thread(futureTask).start();
+            System.out.println(futureTask.get());*/
+            new Thread(new MyThread1()).start();
         }catch (Exception e){
             System.out.println("catch ex");
         }
-        Executors.newFixedThreadPool(5);
+        //Executors.newFixedThreadPool(5);
     }
 
 }
