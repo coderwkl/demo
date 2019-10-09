@@ -1,25 +1,18 @@
-package com.example.demo.collection.linked;
-
-import javafx.util.Pair;
+package com.example.demo.leecode.domain;
 
 import java.util.List;
 
 /**
  * @Description:
  * @Author: wukunlin
- * @CreateDate: 2019/7/29 下午4:02
+ * @CreateDate: 2019/8/29 下午4:58
  * @Version: 1.0
  */
 public class ListNode {
 
-    int val;
-    ListNode next = null;
-
-    //多叉树
-    List<Pair<ListNode,Integer>> children;
-
-
-    ListNode(int val) {
+    public int val;
+    public ListNode next = null;
+    public ListNode(int val) {
         this.val = val;
     }
 

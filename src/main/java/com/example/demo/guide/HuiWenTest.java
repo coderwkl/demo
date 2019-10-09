@@ -3,8 +3,8 @@ package com.example.demo.guide;
 public class HuiWenTest {
 
     public static void main(String[] args) {
-        String str = "abcb";
-        System.out.println(longestPalindromeSubseq(str));
+        String str = "abc";
+        System.out.println(huiWenStr(str));
 
         /*String str = "123";
         System.out.println(str2Int(str));*/

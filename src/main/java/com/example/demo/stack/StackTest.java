@@ -28,6 +28,17 @@ public class StackTest {
         return stack.isEmpty();
     }
 
+    private static void invertStack(){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        Integer tmp = null;
+        tmp = stack.pop();
+
+    }
+
     public static void main(String[] args) {
         System.out.println(isPopSequence(new int[]{1,2,3,4,5}, new int[]{2,1,5,4,3}));
     }
